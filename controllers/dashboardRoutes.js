@@ -9,13 +9,13 @@ router.get("/", async (req, res) => {
       },
     });
 
-    const blogpost = blogpostData.map((blogpost) =>
+    const blogposts = blogpostData.map((blogpost) =>
       blogpost.get({ plain: true })
     );
 
     res.render("allBlogPostLoggedIn", {
       layout: "dashboard",
-      blogpost,
+      blogposts,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -26,11 +26,11 @@ router.get("/edit/:id", async (req, res) => {
   try {
     const blogpostData = await Blogpost.findByPk(req.params.id);
 
-    const blogpost = blogpostData.get({ plain: true });
+    const blogposts = blogpostData.get({ plain: true });
 
     res.render("editBlogPost", {
       layout: "dashboard",
-      blogpost,
+      blogposts,
     });
   } catch (err) {
     res.status(500).json(err);
