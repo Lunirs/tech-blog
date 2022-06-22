@@ -4,7 +4,7 @@ const path = require("path");
 const exphbs = require("express-handlebars");
 const helpers = require("./utils/helpers");
 const { User, Blogpost, Comment } = require("./models");
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -14,13 +14,13 @@ const hbs = exphbs.create({ helpers });
 const sess = {
   secret: "Super secret secret",
   cookie: {
-    maxAge: 36000
+    maxAge: 36000,
   },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-      db: sequelize
-  })
+    db: sequelize,
+  }),
 };
 app.use(session(sess));
 
@@ -56,10 +56,12 @@ app.get("/blogpost/:id", async (req, res) => {
         User,
         {
           model: Comment,
-          include: [{
-            model: User,
-            attributes: {exclude:["password"]};
-          }],
+          include: [
+            {
+              model: User,
+              attributes: { exclude: ["password"] },
+            },
+          ],
         },
       ],
     });
@@ -77,8 +79,8 @@ app.get("/dashboard", async (req, res) => {
   try {
     const blogpostData = await Blogpost.findAll({
       where: {
-        user_id: req.session.user_id
-      }
+        user_id: req.session.user_id,
+      },
     });
 
     const blogpostdash = blogpostData.map((blogpost) =>
