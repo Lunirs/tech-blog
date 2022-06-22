@@ -4,7 +4,6 @@ const path = require("path");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
 const helpers = require("./utils/helpers");
-const { User, Blogpost, Comment } = require("./models");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const app = express();
@@ -25,6 +24,7 @@ const sess = {
 };
 app.use(session(sess));
 app.use(require("./controllers"));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
