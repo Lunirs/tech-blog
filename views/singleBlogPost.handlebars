@@ -1,0 +1,39 @@
+<div class="card text-left mb-5 ml-5 mr-5">
+  <div class="card-header">
+    <h2>{{singleBlogPost.title}}</h2>
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{singleBlogPost.body}}</p>
+  </div>
+  <div class="card-footer text-muted">
+    Posted by:
+    {{singleBlogPost.user.name}}</div>
+</div>
+
+{{#if singleBlogPost.comments}}
+  <div class="card text-left mb-5 ml-5 mr-5">
+    <div class="card-header">
+      <h3>Comments</h3>
+    </div>
+    {{#each singleBlogPost.comments}}
+      <div class="card-body">
+        <p class="card-text">{{body}}</p>
+        <p> Posted by: {{user.name}}</p>
+      </div>
+    {{/each}}
+  </div>
+{{/if}}
+
+<div class="card m-5">
+  <h3 class="card-header">Add a comment!</h3>
+  <form class="comment-form">
+    <div class="form-group m-3">
+      <input type="hidden" name="blogpost-id" value="{{singleBlogPost.id}}" />
+      <label for="comment-add">Comment</label>
+      <textarea class="form-control" name="comment-add" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary m-3 commentBtn">Submit Comment</button>
+  </form>
+</div>
+
+<script src="/js/comment.js"></script>
