@@ -1,6 +1,8 @@
 {{#each blogposts as |blogpost|}}
   <div class="card text-left mb-5 ml-5 mr-5">
-    <div class="card-header">{{title}} </div>
+    <div class="card-header"><a
+        href="/dashboard/edit/{{id}}"
+      >{{title}}</a></div>
     <div class="card-body">
       <p class="card-text">{{body}}</p>
     </div>

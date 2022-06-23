@@ -1,0 +1,29 @@
+<div class="card m-5">
+  <h3 class="card-header">Edit Blog Post</h3>
+  <form class="edit-form">
+    <input type="hidden" id="blogpost-id" value="{{blogposts.id}}" />
+    <div class="form-group m-3">
+      <label for="blogpost-title">Blog Post Title</label>
+      <input
+        type="text"
+        id="blogpost-title"
+        class="form-control"
+        value="{{blogposts.title}}"
+      />
+    </div>
+    <div class="form-group m-3">
+      <label for="blogpost-body">Blog Post Body</label>
+      <input
+        type="text"
+        id="blogpost-body"
+        class="form-control"
+        value="{{blogposts.body}}"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary m-3 updateBtn">Update</button>
+    <button type="submit" class="btn btn-primary m-3 delBtn">Delete</button>
+  </form>
+</div>
+
+<script src="/js/editBlogPost.js"></script>
+<script src="/js/deleteBlogPost.js"></script>
