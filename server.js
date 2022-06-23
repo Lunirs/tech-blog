@@ -1,3 +1,4 @@
+require("dotenv").config();
 const sequelize = require("./config/connection");
 const express = require("express");
 const path = require("path");
@@ -13,7 +14,7 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ helpers });
 
 const sess = {
-  secret: "Super secret secret",
+  secret: SESSION_SECRET,
   cookie: {
     maxAge: 3600000,
   },
