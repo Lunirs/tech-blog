@@ -71,7 +71,7 @@ Once you have fully set up the repository, you will be able to view the tech blo
 
 Please see the link below to see a video demonstrating the live site currently deployed on heroku.
 
-[Click here](https://www.youtube.com/watch?v=RqEbUmadpY0) to see the video.
+### [Click here](https://www.youtube.com/watch?v=H9Tw0sXjw8Y) to see the video.
 
 ## Contributing
 
