@@ -13,7 +13,6 @@ router.get("/", withAuth, async (req, res) => {
     const blogposts = blogpostData.map((blogpost) =>
       blogpost.get({ plain: true })
     );
-
     res.render("allBlogPostLoggedIn", {
       layout: "dashboard",
       blogposts,
