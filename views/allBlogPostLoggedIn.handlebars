@@ -6,6 +6,11 @@
       <p class="card-text">{{body}}</p>
     </div>
     <div class="card-footer text-muted">
-      Posted" 2 days ago</div>
+      Posted by:
+      {{user.name}}
+      on
+      {{format_date createdAt}}
+      at
+      {{format_time createdAt}}</div>
   </div>
 {{/each}}
