@@ -10,7 +10,7 @@
       integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./public/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
     <header>
@@ -39,6 +39,12 @@
       </div>
     </header>
     <main>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary m-3"><a
+            class="link text-light"
+            href="/dashboard/new"
+          >Add a new Post!</a></button>
+      </div>
       <div class="card-container">
         {{{body}}}
       </div>
