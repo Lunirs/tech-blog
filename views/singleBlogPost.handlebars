@@ -7,7 +7,11 @@
   </div>
   <div class="card-footer text-muted">
     Posted by:
-    {{singleBlogPost.user.name}}</div>
+    {{singleBlogPost.user.name}}
+    on
+    {{format_date singleBlogPost.createdAt}}
+    at
+    {{format_time singleBlogPost.createdAt}}</div>
 </div>
 
 {{#if singleBlogPost.comments}}
