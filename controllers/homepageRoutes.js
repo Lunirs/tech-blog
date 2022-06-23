@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
       blogpost.get({ plain: true })
     );
 
-    res.render("allBlogPost", { blogposts });
+    res.render("allBlogPost", { blogposts, loggedIn: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -44,14 +44,17 @@ router.get("/blogpost/:id", async (req, res) => {
 
     const singleBlogPost = blogpostData.get({ plain: true });
 
-    res.render("singleBlogPost", { singleBlogPost });
+    res.render("singleBlogPost", {
+      singleBlogPost,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 router.get("/login", (req, res) => {
-  if (req.session.logged_in) {
+  if (req.session.loggedIn) {
     res.redirect("/");
     return;
   }
@@ -60,7 +63,7 @@ router.get("/login", (req, res) => {
 });
 
 router.get("/signup", (req, res) => {
-  if (req.session.logged_in) {
+  if (req.session.loggedIn) {
     res.redirect("/");
     return;
   }
